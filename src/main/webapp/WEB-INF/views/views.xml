@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans SYSTEM "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+	<bean id="homePages" class="org.springframework.web.servlet.view.tiles2.TilesView">
+		<property name="url">
+			<value>HHHHHH</value>
+		</property>
+	</bean>
+	<bean id="homePage" class="org.springframework.web.servlet.view.JstlView">
+		<property name="url">
+			<value>/WEB-INF/views/home.jsp</value>
+		</property>
+	</bean>
+
+	<bean id="createCountPage" class="org.springframework.web.servlet.view.JstlView">
+		<property name="url">
+			<value>/WEB-INF/views/CreateCount.jsp</value>
+		</property>
+	</bean>
+
+	<bean id="loginPage" class="org.springframework.web.servlet.view.JstlView">
+		<property name="url">
+			<value>/WEB-INF/views/login.jsp</value>
+		</property>
+	</bean>
+
+</beans>

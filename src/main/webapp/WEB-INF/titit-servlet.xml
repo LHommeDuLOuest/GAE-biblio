@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans 
+		http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/mvc
+		http://www.springframework.org/schema/mvc/spring-mvc.xsd
+		http://www.springframework.org/schema/context 
+		http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<!-- INFO : auto decouverte des controleurs et ... ex: @Controller, @Repository, 
+		@Service -->
+	<context:component-scan base-package="com.dz.nan.tizi.*" />
+	<!-- INFO : Take part for annotation @Autowired, @Required, @Qualifier ... -->
+	<context:annotation-config />
+	<!-- INFO -->
+	<mvc:annotation-driven />
+	<!--mvc:default-servlet-handler/ -->
+	<!--mvc:resources mapping="/btsp/**" location="/BootstrapFile/bootstrap/"/ -->
+	<!-- INFO : Handler Mapping For Annotation -->
+	<bean
+		class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping" />
+	<!--bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter" / -->
+
+	<!-- INFO : -->
+	<!-- <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource"> 
+		<property name="basename"> <value>univ.paris.ouest.validator.errors</value> 
+		</property> </bean> -->
+
+	<!-- INFO : Gestion tiles -->
+	<bean id="tilesConfigurer"
+		class="org.springframework.web.servlet.view.tiles2.TilesConfigurer">
+		<property name="definitions">
+			<value>/WEB-INF/tiles/tiles.xml</value>
+		</property>
+	</bean>
+
+	<!-- INFO : Resolution de la vue -->
+	<bean class="org.springframework.web.servlet.view.XmlViewResolver">
+		<property name="location">
+			<value>/WEB-INF/views/views.xml</value>
+		</property>
+	</bean>
+	
+	<!-- INFO: Validator -->
+	<bean id = "userValidator" class = "com.dz.nan.tizi.validator.SaveUserValidator"></bean>
+</beans>
